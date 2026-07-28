@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import CoverScreen from "@/components/CoverScreen";
 import FloralSprig from "@/components/FloralSprig";
 import FloralDivider from "@/components/FloralDivider";
@@ -11,6 +11,7 @@ import LocationBubble from "@/components/bubbles/LocationBubble";
 import DateBubble from "@/components/bubbles/DateBubble";
 import WishBubble from "@/components/bubbles/WishBubble";
 import { siteConfig } from "@/config/site";
+import BackgroundAudio, { BackgroundAudioHandle } from "@/components/BackgroundAudio";
 
 const bubbleTitles: Record<BubbleId, string> = {
   location: "Lokasi Majlis",
@@ -32,10 +33,17 @@ const tentatif = [
 export default function Home() {
   const [open, setOpen] = useState(false);
   const [activeBubble, setActiveBubble] = useState<BubbleId | null>(null);
+  const audioHandleRef = useRef<BackgroundAudioHandle>(null);
+
+  function handleOpen() {
+    setOpen(true);
+    audioHandleRef.current?.play();
+  }
 
   return (
     <main className="relative">
-      <CoverScreen open={open} onOpen={() => setOpen(true)} />
+      <CoverScreen open={open} onOpen={handleOpen} />
+      <BackgroundAudio ref={audioHandleRef} visible={open} />
 
       {open && (
         <div className="card-shell overflow-hidden pb-28">

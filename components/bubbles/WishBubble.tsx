@@ -67,7 +67,7 @@ export default function WishBubble() {
   return (
     <div className="text-center">
       <p className="mx-auto max-w-[15rem] font-body text-sm text-ink-light">
-        Send your prayers and well-wishes for the couple
+        Tinggalkan ucapan dan doa untuk mereka berdua 🌷
       </p>
 
       <AnimatePresence mode="wait">
@@ -79,13 +79,13 @@ export default function WishBubble() {
             className="mt-6 rounded-2xl border border-rose-200 bg-blush-50 px-6 py-8"
           >
             <p className="font-display text-lg text-rose-600">
-              Thank you for your wish 🌷
+              Terima kasih atas ucapanmu 🌷
             </p>
             <button
               onClick={() => setStatus("idle")}
               className="mt-4 text-xs uppercase tracking-widest text-ink-light underline underline-offset-4"
             >
-              Send another
+              Kirim lainnya
             </button>
           </motion.div>
         ) : (
@@ -99,7 +99,7 @@ export default function WishBubble() {
           >
             <div>
               <label htmlFor="name" className="mb-1 block text-xs uppercase tracking-widest text-ink-light">
-                Your name
+                Nama
               </label>
               <input
                 id="name"
@@ -107,14 +107,14 @@ export default function WishBubble() {
                 onChange={(e) => setName(e.target.value)}
                 maxLength={60}
                 required
-                placeholder="e.g. Aunty Zainab"
+                placeholder="e.g. Mak Bedah"
                 className="w-full rounded-xl border border-rose-200 bg-white/70 px-4 py-3 font-body text-sm text-ink outline-none transition focus:border-rose-400"
               />
             </div>
 
             <div>
               <label htmlFor="message" className="mb-1 block text-xs uppercase tracking-widest text-ink-light">
-                Your wish
+                Ucapan & doa
               </label>
               <textarea
                 id="message"
@@ -123,7 +123,7 @@ export default function WishBubble() {
                 maxLength={500}
                 required
                 rows={4}
-                placeholder="Wishing you both a lifetime of happiness..."
+                placeholder="e.g. Semoga berbahagia hingga ke syurga"
                 className="w-full resize-none rounded-xl border border-rose-200 bg-white/70 px-4 py-3 font-body text-sm text-ink outline-none transition focus:border-rose-400"
               />
             </div>

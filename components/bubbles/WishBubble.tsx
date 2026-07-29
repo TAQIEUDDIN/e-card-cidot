@@ -66,7 +66,7 @@ export default function WishBubble() {
 
   return (
     <div className="text-center">
-      <p className="mx-auto max-w-[15rem] font-body text-sm text-ink-light">
+      <p className="mx-auto max-w-[16rem] font-body text-sm text-ink-light sm:max-w-[15rem]">
         Tinggalkan ucapan dan doa untuk mereka berdua 🌷
       </p>
 
@@ -153,7 +153,10 @@ export default function WishBubble() {
             : `${wishes.length} ${wishes.length === 1 ? "wish" : "wishes"} so far`}
         </p>
 
-        <div className="mt-4 flex max-h-64 flex-col gap-3 overflow-y-auto pr-1 text-left">
+        <div
+          className="mt-4 flex max-h-[42dvh] flex-col gap-3 overflow-y-auto overscroll-contain pr-1 text-left touch-pan-y sm:max-h-64 md:max-h-72"
+          style={{ WebkitOverflowScrolling: "touch" }}
+        >
           {!loadingWishes && wishes.length === 0 && (
             <p className="py-4 text-center font-body text-sm text-ink-light">
               Be the first to leave a wish 🌷
